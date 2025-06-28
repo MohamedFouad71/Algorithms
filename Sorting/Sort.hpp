@@ -6,9 +6,9 @@ class Sort
 
         // -------------Could Cause Overflow------------
 
-        x += y; // x+y
-        y = x-y; // x+y-y = x
-        x -= y; // x+y-x = y
+        int temp = x; 
+        x = y;
+        y = temp;
 
     }
 
@@ -38,6 +38,22 @@ class Sort
 
     // ######################## Public Methods to Use #################################
 public:
+
+    static void SelectionSort(int arr[], int size){
+
+        for (int i = 0; i < size - 1; i++){
+
+            int minimumIndex = i;
+
+            for (int j = i+1; j <size; j++)
+                if (arr[j] < arr[minimumIndex])
+                    minimumIndex = j;
+            
+            swap(arr[minimumIndex], arr[i]);
+        }
+    }
+
+
 
     static void QuickSort(int arr[], int low, int high){
 
